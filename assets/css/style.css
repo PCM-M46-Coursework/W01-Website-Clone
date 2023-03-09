@@ -1,0 +1,648 @@
+/*
+    CSS Best Practices: Property Order
+
+    Mnemonic: Some Great Programmers Develop Clean and Beautiful Blocks Through Practice.
+
+    sample {
+        SASS Inheritance: 
+            @mixin (eg. clearfix)
+
+        Genterated Content: 
+            content
+
+        Position and Layout: 
+            position, z-index, top, bottom, left, right, flexbox properties, float, clear
+
+        Display and Visibility: 
+            display, visibiliy, opacity, transform
+
+        Clipping: 
+            overflow, clip
+
+        Animation: 
+            animation, transition
+
+        Box Model (From outside-in): 
+            margin, box-shadow, border, border-radius, box-sizing, width, height, padding
+
+        Background: 
+            background, cursor
+
+        Typography: 
+            font-size, line-height, font-family, font-wieght, font-style, font-align, text-transform, word-spacing, color
+
+        Pseudo-classes/elements (nested rules): 
+            :hover, :focus, :active, ::before, ::after, :first-child, :last-child, etc.
+    }
+
+    CSS Best Practices: Stylesheet Styles Order
+
+    Mnemonic: In Remote Guidance, Take Control Using KVM
+
+    1. Imported styles: @import
+    2. Reset styles: *, *::before, *::after
+    3. Global page styles: :root, html, body
+    4. Type styles: a, a:hover, a:visited, p, span, button
+    5. Container styles (in page order): div, header, nav, main, article, aside, section, footer
+    6. Utility classes: such as helper classes for margins and padding
+    7. Keyframe animations: @keyframes
+    8. Vendor-specific styles: -webkit- or -moz- prefixes
+    9. Media queries: @media
+
+    Within each of these categories, you can also group styles further by specificity or alphabetically by selector.
+
+    It's also a good practice to comment your CSS to indicate which section of your styles you are working on.
+    This can make it easier to navigate and update your code in the future.
+
+    Other Best Practices:
+      • DRY - Don't Repeat Yourself
+      • YAGNI - You're Not Gonna Need It
+      • DRY - Don't Repeat Yourself
+      • Descriptive, and Domain Based Naming
+      • Be Specific, But Not To Specific
+*/
+
+/* ==================================================================
+    Theme
+   ================================================================== */
+
+:root {
+  /* --container-width: 1340px; */
+  --container-width: 70vw;
+  --primary-nav-height: 40px;
+  --secondary-nav-height: 35px;
+
+  --search-box-width: 15vw;
+}
+
+/* ==================================================================
+    Reset
+   ================================================================== */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.clearfix::after {
+  content: " ";
+  clear: both;
+  display: block;
+  visibility: hidden;
+  height: 0;
+  font-size: 0;
+}
+
+/* ==================================================================
+    Page Styles
+   ================================================================== */
+
+body {
+  background-image: var(--theme-page-background-image) !important;
+  background-attachment: fixed;
+  background-size: cover;
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* ==================================================================
+    Generic Type Styles
+   ================================================================== */
+
+a,
+a:hover,
+a:visited,
+a:active {
+  text-decoration: none;
+}
+
+iframe {
+  border: none;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+}
+
+/* ==================================================================
+    Generic Containers
+   ================================================================== */
+
+.flex-container {
+  display: flex;
+}
+
+body>div {
+  width: 100vw;
+}
+
+/* ==================================================================
+    Header
+   ================================================================== */
+
+.header-container {
+  background-color: var(--theme-header-background);
+}
+
+.header-section {
+  align-items: center;
+  margin: auto;
+  width: var(--container-width);
+}
+
+.header-section img {
+  margin-block: 10px;
+  width: 100px;
+}
+
+.header-social-buttons {
+  margin-right: 5px;
+  font-size: 1.7em;
+}
+
+.header-social-buttons a:first-child {
+  margin-left: 40px;
+}
+
+.header-social-buttons a {
+  text-decoration: none;
+  color: var(--theme-social-icon);
+}
+
+.header-social-buttons a:hover {
+  text-decoration: none;
+  color: var(--theme-social-icon-hover);
+}
+
+.header-social-buttons i {
+  margin: 5px;
+}
+
+.header-account-container {
+  align-items: stretch;
+  margin-left: auto;
+}
+
+.header-account-section {
+  background-color: var(--theme-account-background);
+  margin-left: 2px;
+  padding-inline: 10px;
+  font-weight: 300;
+  line-height: 1.8em;
+  color: var(--theme-account-text);
+}
+
+.header-account-section i {
+  margin: 0 5px;
+  font-size: 1.05em;
+  line-height: 2em;
+}
+
+/* ==================================================================
+    Navigation Bar
+   ================================================================== */
+
+.nav-container {
+  position: relative;
+  background-color: var(--theme-primary-nav-background);
+}
+
+.nav-container::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: var(--secondary-nav-height);
+  background: var(--theme-secondary-nav-background);
+  box-shadow: var(--theme-secondary-nav-shadow) 0px 1px 2px;
+}
+
+.nav-section {
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  width: var(--container-width);
+  height: var(--primary-nav-height);
+}
+
+.nav-primary {
+  display: inline;
+  padding-inline-end: 10px;
+}
+
+.nav-primary li {
+  display: inline-flex;
+}
+
+.nav-primary>li {
+  flex-flow: row wrap;
+  height: var(--primary-nav-height);
+  padding: 10px;
+}
+
+.nav-primary>li a {
+  font-weight: 400;
+  text-decoration: none;
+  color: var(--theme-primary-nav-link);
+}
+
+.nav-primary>li i {
+  display: none;
+}
+
+.nav-primary>li.selected {
+  background-color: var(--theme-primary-nav-selected-background);
+}
+
+.nav-primary>li.selected i {
+  display: inline;
+}
+
+.nav-primary>li.selected>a {
+  font-weight: 700;
+  color: var(--theme-primary-nav-selected);
+}
+
+.nav-primary>li:hover {
+  background-color: var(--theme-primary-nav-selected-background);
+}
+
+.nav-primar y>li:hover a {
+  color: var(--theme-primary-nav-selected);
+}
+
+.nav-search {
+  align-items: center;
+  margin-left: auto;
+  height: 40px;
+}
+
+.nav-search input {
+  background-color: var(--theme-search-background);
+  border-radius: 15px 0 0 15px;
+  border: none;
+  width: 15vw;
+  height: 24px;
+  padding-left: 10px;
+}
+
+.nav-search input:focus {
+  outline: none;
+}
+
+.nav-search button {
+  background-color: var(--theme-search-background);
+  border-radius: 0 15px 15px 0;
+  border: none;
+  height: 24px;
+  padding-right: 10px;
+  font-size: 0.7em;
+}
+
+.nav-secondary-container {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: var(--container-width);
+}
+
+.nav-secondary {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  align-self: center;
+  height: var(--secondary-nav-height);
+  background-color: var(--theme-secondary-nav-highlight);
+}
+
+.nav-secondary li {
+  padding-inline: 10px;
+  font-weight: 500;
+  text-decoration: none;
+  line-height: var(--theme-secondary-nav-highlight);
+  color: var(--theme-secondary-nav-text);
+}
+
+.nav-secondary li a {
+  font-size: 0.85em;
+  text-decoration: underline;
+  line-height: var(--secondary-nav-height);
+  color: var(--theme-secondary-nav-text);
+}
+
+.nav-secondary li i {
+  padding-left: 4px;
+  font-size: 0.80em;
+  line-height: var(--secondary-nav-height);
+  color: var(--theme-secondary-nav-text);
+}
+
+.nav-primary li .nav-secondary {
+  display: none;
+}
+
+.nav-primary li.selected .nav-secondary {
+  display: flex;
+}
+
+.header-burger-menu {
+  display: none;
+}
+
+/* ==================================================================
+    Content
+   ================================================================== */
+
+main {
+  display: block;
+  margin-top: var(--secondary-nav-height);
+  padding: 10px;
+}
+
+.main-container {
+  flex-flow: column;
+  align-items: center;
+}
+
+.content-section {
+  background-color: var(--theme-content-background);
+  margin: 10px;
+  padding: 10px;
+}
+
+.content-row-full {
+  width: var(--container-width);
+}
+
+.content-row-flex {
+  flex: 1;
+}
+
+.direct-sales-container {
+  flex-direction: column;
+  align-items: center;
+  row-gap: 20px;
+}
+
+.purchases-container {
+  flex-flow: row;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.purchases-container div:first-child {
+  margin-left: 0;
+}
+
+.purchases-container div:last-child {
+  margin-right: 0;
+}
+
+.vendor-sales-container {
+  flex-direction: column;
+  align-items: center;
+}
+
+.content-section p.blurb {
+  font-size: 1.12em;
+  line-height: 1.5;
+}
+
+.content-section p.detail-text {
+  font-size: 0.85em;
+}
+
+a.buy-the-game {
+  display: inline-block;
+  text-decoration: none;
+  border-radius: 4px;
+  margin-left: 0px;
+  padding: 5px 10px;
+  background-color: var(--theme-button-background);
+  font-size: 1.5em;
+  color: var(--theme-button-text);
+}
+
+.content-section a.buy-the-game:hover {
+  transform: scale(1.2);
+}
+
+.vendor-links {
+  flex: 50%;
+  text-align: center;
+}
+
+.vendor-links img {
+  margin-inline: 10px;
+  width: 25%;
+}
+
+.content-text-header {
+  line-height: 1.5;
+  font-size: 1.5em;
+  font-weight: 600;
+  text-align: center;
+}
+
+.content-section i[class^="fa-"] {
+  padding-inline-end: 10px;
+  color: var(--theme-fa-icon-bullet);
+}
+
+.content-section>div {
+  padding-block: 10px;
+}
+
+.content-section p {
+  margin-inline: 10px;
+  margin-block: 5px;
+  line-height: 1.5;
+}
+
+.content-section p a {
+  text-decoration: underline;
+}
+
+/* ==================================================================
+    Footer
+   ================================================================== */
+
+
+footer {
+  opacity: var(--theme-footer-opacity);
+  font-size: 0.8em;
+  line-height: 1.5rem;
+  text-align: center;
+}
+
+footer>div {
+  margin-inline: auto !important;
+}
+
+footer ul {
+  display: block;
+}
+
+footer li {
+  display: inline;
+  margin-inline: 10px;
+}
+
+/* ==================================================================
+    Responsive: Less than 1400px wide 
+     - Increase the overall width of the content to 80% page width.
+     - Remove search bar.
+   ================================================================== */
+
+@media screen and (width < 1400px) {
+  :root {
+    --container-width: 80vw;
+  }
+
+  .nav-search {
+    display: none;
+    visibility: hidden;
+  }
+
+  .nav-section {
+    justify-content: flex-start;
+  }
+}
+
+/* ==================================================================
+    Responsive: Less than 1200px wide
+     - Increase the overall width of the content to 95% page width.
+     - Remove primary navigation menu.
+     - Remove secondary navigation menu.
+     - Remove Account menu.
+     - Add burger menu.
+   ================================================================== */
+
+@media screen and (width < 1200px) {
+
+  :root {
+    --container-width: 95vw;
+  }
+
+  .nav-container,
+  .header-account-container {
+    display: none;
+    visibility: hidden;
+  }
+
+  .nav-primary > li a {
+    font-size: 0.9rem;
+  }
+
+  main {
+    margin-top: 0;
+  }
+
+  .header-burger-menu {
+    position: relative;
+    display: flex;
+    margin-left: auto;
+    padding: 10px;
+    font-size: 1.5rem;
+    color: var(--theme-social-icon);
+  }
+
+  .header-burger-menu:focus,
+  .header-burger-menu:focus-within,
+  .header-burger-menu:hover {
+    cursor: pointer;
+    color: var(--theme-social-icon-hover);
+  }
+
+  .header-burger-menu > ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 15rem;
+    padding: 5px;
+    background-color: var(--theme-content-background);
+    list-style: none;
+  }
+
+  .header-burger-menu > ul li {
+    margin: 10px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px #000;
+    background-color: var(--theme-button-background);
+    line-height: 1.5;
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .header-burger-menu > ul li:hover {
+    box-shadow: inset 1px 1px 1px #000;
+  }
+
+  .header-burger-menu > ul a {
+    color: var(--theme-primary-nav-link);
+  }
+
+  .header-burger-menu:focus > ul,
+  .header-burger-menu:focus-within > ul,
+  .header-burger-menu:hover > ul {
+    display: block;
+  }
+}
+
+/* ==================================================================
+    Responsive: Less than 500px wide
+     - Increase the width of the burger menu dropdown.
+     - Adjust positions of purchase container.
+     - Adjust margin of purchase button.
+   ================================================================== */
+
+@media screen and (width < 500px) {
+
+  .header-burger-menu > ul {
+    width: 20rem;
+  }
+
+  .purchases-container {
+    flex-direction: column;
+  }
+
+  .vendor-sales-container {
+    margin: auto;
+  }
+
+  .vendor-sales-container img {
+    margin-block: 20px;
+    margin-inline: auto;
+    width: 75%;
+  }
+
+  .content-row-flex {
+    width: var(--container-width);
+  }
+
+  .content-section a.buy-the-game {
+    margin-bottom: 20px;
+  }
+}
+
+/* ==================================================================
+    Responsive: Less than 450px wide
+     - Remove the Social Buttons
+     - Decrease the scaling of the purchase button hover effect.
+   ================================================================== */
+
+@media screen and (width < 450px) {
+  .header-social-buttons {
+    display: none;
+  }
+
+  .content-section a.buy-the-game:hover {
+    transform: scale(1.1);
+  }
+}

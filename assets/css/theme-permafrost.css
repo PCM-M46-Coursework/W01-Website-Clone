@@ -1,0 +1,33 @@
+/* ==================================================================
+    Theme: Forest Floor (Default Theme)
+   ================================================================== */
+
+   :root {  
+    --theme-page-background-image: url(../images/permafrost.png);
+  
+    --theme-header-background: rgba(45, 100, 183, 0.7);
+    --theme-content-background: rgba(211, 242, 255, 0.6);
+  
+    --theme-account-background: rgba(255, 255, 255, 0.35);
+    --theme-account-text: rgba(0, 0, 0, 0.7);
+  
+    --theme-primary-nav-background: rgba(42, 61, 71, 0.34);
+    --theme-primary-nav-link: rgb(255, 255, 255);
+    --theme-primary-nav-selected: rgb(0, 0, 64);
+    --theme-primary-nav-selected-background: rgba(211, 242, 255, 0.6);
+    --theme-secondary-nav-background: rgba(89, 133, 160, 0.34);
+    --theme-secondary-nav-highlight: rgba(89, 133, 160, 0.34);
+    --theme-secondary-nav-shadow: rgba(0, 0, 0, 0.1);
+    --theme-secondary-nav-text: rgb(0, 0, 64);
+   
+    --theme-search-background: rgb(204, 218, 255);
+  
+    --theme-social-icon: rgba(255, 252, 244, 0.6);
+    --theme-social-icon-hover: rgba(255, 252, 244, 1);
+  
+    --theme-button-background: rgb(0, 0, 64);
+    --theme-button-text: rgb(223, 239, 255);
+    --theme-fa-icon-bullet: rgb(0, 0, 64);
+
+    --theme-footer-opacity: 1;
+  }

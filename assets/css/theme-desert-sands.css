@@ -1,0 +1,37 @@
+/* ==================================================================
+    Theme: Desert Sands
+   ================================================================== */
+
+   :root {  
+    --theme-page-background-image: url(../images/desert-skies.png);
+  
+    --theme-header-background: rgba(255, 237, 157, 0.27);
+    --theme-content-background: rgba(255, 242, 211, 0.4);
+  
+    --theme-account-background: rgba(255, 255, 255, 0.35);
+    --theme-account-text: rgba(0, 0, 0, 0.7);
+  
+    --theme-primary-nav-background: rgba(121, 99, 65, 0.267);
+    --theme-primary-nav-link: rgba(255, 255, 255, 1);
+    --theme-primary-nav-selected: rgb(126, 62, 62);
+    --theme-primary-nav-selected-background: rgba(255, 242, 211, 0.6);
+    --theme-secondary-nav-background: rgba(5, 5, 3, 0.34);
+    --theme-secondary-nav-highlight: rgba(255, 202, 119, 0.14);
+    --theme-secondary-nav-shadow: rgba(0, 0, 0, 0.1);
+    --theme-secondary-nav-text: rgb(255, 233, 223);
+   
+    --theme-search-background: rgb(255, 236, 184);
+  
+    --theme-social-icon: rgba(255, 252, 244, 0.6);
+    --theme-social-icon-hover: rgba(255, 252, 244, 1);
+  
+    --theme-button-background: rgb(243, 250, 177);
+    --theme-button-text: rgba(0, 0, 0, 0.8);
+    --theme-fa-icon-bullet: rgb(62, 90, 126);
+
+    --theme-footer-opacity: 1;
+  }
+
+  a.buy-the-game {
+    box-shadow: rgba(0, 0, 0, 0.4) 5px 5px 5px;
+  }

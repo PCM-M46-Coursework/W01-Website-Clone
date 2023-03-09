@@ -1,0 +1,33 @@
+/* ==================================================================
+    Theme: Forest Floor (Default Theme)
+   ================================================================== */
+
+   :root {  
+    --theme-page-background-image: url(//content.invisioncic.com/r268468/pages_media/0_bg117.jpg);
+  
+    --theme-header-background: rgba(103, 183, 7, 0.27);
+    --theme-content-background: rgba(255, 242, 211, 0.9);
+  
+    --theme-account-background: rgba(255, 255, 255, 0.35);
+    --theme-account-text: rgba(0, 0, 0, 0.7);
+  
+    --theme-primary-nav-background: rgba(253, 154, 0, 0.34);
+    --theme-primary-nav-link: rgba(255, 255, 255, 1);
+    --theme-primary-nav-selected: rgba(0, 0, 0, 0.1);
+    --theme-primary-nav-selected-background: rgba(255, 242, 211, 0.6);
+    --theme-secondary-nav-background: rgba(255, 202, 119, 0.34);
+    --theme-secondary-nav-highlight: rgba(255, 202, 119, 0.34);
+    --theme-secondary-nav-shadow: rgba(0, 0, 0, 0.1);
+    --theme-secondary-nav-text: #17d;
+   
+    --theme-search-background: #eee;
+  
+    --theme-social-icon: rgba(255, 252, 244, 0.6);
+    --theme-social-icon-hover: rgba(255, 252, 244, 1);
+  
+    --theme-button-background: #91a357;
+    --theme-button-text: #fff;
+    --theme-fa-icon-bullet: #561;
+
+    --theme-footer-opacity: 0.6;
+  }
